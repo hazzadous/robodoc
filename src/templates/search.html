@@ -45,7 +45,7 @@
 
         <div class="row">
 
-          <div class="col-md-2">
+          <div class="col-md-4">
             <ol>
               <li ng-repeat="bucket in significantWords">
                 <button class="btn" ng-click="addKey(bucket.key)">{{ bucket.key }}</button> <br /> 
@@ -53,12 +53,11 @@
             </ol>
           </div>
 
-          <div class="col-md-10">
-            <ul>
-              <li ng-repeat="result in results">
-                <p>... <span ng-bind-html="result.highlight.text[0]"></span> ...</p>
-              </li>
-            </ul>
+          <div class="col-md-8">
+            <div class="row" ng-repeat="result in results">
+              <h3><a target="_blank" href="{{ result._source.url }}">{{ result._source.title }}</a></h3>
+              <p>... <span ng-bind-html="result.highlight.text[0]"></span> ...</p>
+            </div>
           </div>
 
         </div>
